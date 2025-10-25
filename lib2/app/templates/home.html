@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'css/home.css' %}">
+</head>
+<body>
+
+  <div class="card-container">
+  <a href="admin_signup" class="card">
+    <img src="{% static 'images/admin.png' %}" alt="Admin" class="icon">
+    <span>Admin</span>
+  </a>
+
+  <a href="student_signup" class="card">
+    <img src="{% static 'images/student.png' %}" alt="Student" class="icon">
+    <span>Student</span>
+  </a>
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Login</title>
+    <link rel="stylesheet" href="{% static "css/student_login.css"%}">
+</head>
+<body>
+    <div class="center-box">
+    <h2>Student Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" required><br><br>
+        <label>Password:</label>
+        <input type="password" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <p>if you don't have any account yet <a href="{% url 'student_signup' %}">Signup</a></p>
+    <a href="{% url "home" %}">Home</a>
+</div>
+</body>
+</html>

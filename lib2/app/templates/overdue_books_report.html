@@ -1,0 +1,39 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Overdue Books Report</title>
+    <link rel="stylesheet" href="{% static 'css/overdue_books_report.css'%}">
+</head>
+<body>
+    <div class="center-box">
+    <h1>Overdue Books</h1>
+    <p><a href="{% url 'admin_dashboard' %}">Back to Admin Dashboard</a></p>
+    
+    {% if records %}
+    <table border="1">
+    
+            <tr>
+                <th>Book Title</th>
+                <th>Borrowed By (Student)</th>
+                <th>Student ID</th>
+                <th>Due Date</th>
+            </tr>
+        
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.book.title }}</td>
+                <td>{{ record.student.user.username }}</td>
+                <td>{{ record.student.student_id }}</td>
+                <td>{{ record.due_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No books are currently overdue.</p>
+    {% endif %}
+</div>
+</body>
+</html>

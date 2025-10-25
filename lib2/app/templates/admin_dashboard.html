@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static "css/admin_dashboard.css" %}">
+</head>
+<body>
+    <div class="center-box">
+        <h2>Welcome Admin!</h2>
+        <p>{{ request.user.username }}</p>
+        <div class="link-container">
+            <a href="/admin/">Go to Django Admin Panel</a><br><br>
+            <a href="{% url 'overdue_books_report' %}">View Overdue Books Report</a><br><br>
+            <a href="{% url 'user_logout' %}">Logout</a>
+            
+        </div>
+    </div>
+</body>
+</html>
